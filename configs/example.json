@@ -1,0 +1,33 @@
+{
+  "name": "qwen35-moe-6gb",
+  "server": "llama-server",
+  "model": "model.gguf",
+  "port": 18100,
+  "context": 131072,
+  "min_free_mib": 550,
+  "max_proc_mib": 5644,
+  "system": "You are an expert coding assistant for implementation, debugging, and cybersecurity work. Follow the user's requirements and project conventions. Match your effort to the task's complexity. Write correct, maintainable code and explain material tradeoffs concisely. Never claim tests or tool use that did not happen.",
+  "temperature": 0.6,
+  "top_p": 0.95,
+  "top_k": 20,
+  "args": [
+    "--gpu-layers", "99",
+    "--n-cpu-moe", "40",
+    "-ot", "token_embd=CPU",
+    "--spec-type", "draft-mtp",
+    "--spec-draft-n-max", "1",
+    "--spec-draft-n-ubatch", "64",
+    "--cache-type-k", "q8_0",
+    "--cache-type-v", "q8_0",
+    "--threads", "4",
+    "--threads-batch", "6",
+    "--batch-size", "2048",
+    "--ubatch-size", "2048",
+    "--flash-attn", "on",
+    "--parallel", "1",
+    "--fit", "off",
+    "--load-mode", "none",
+    "--jinja",
+    "--no-context-shift"
+  ]
+}
